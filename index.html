@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<!-- HTML Comment Tag -->
+<!-- By inserting a <style> tag, you are able to code in CSS (But don't forget to close it with a </style> tag!) -->
+<style>
+/* CSS Comment Tag */
+</style>
+<!-- By inserting a <script> tag, you are able to code in JavaScript (But don't forget to close it with a </script> tag!) -->
+<script>
+// Javascript Comment Tag (No need for a closing comment mark)
+</script>
+
+<style>
+/* All of our different Helvetica Neue fonts */
+/* Using @font-face you can import different fonts as long as they have a file path */
+
+/* These are commented out for the sole purpose of letting the page load faster; if you want to use a different font from here, uncomment by removing the comment tags */
+/*
+@font-face {
+    font-family: HelveticaNeue;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeue.ttf);
+}
+@font-face {
+    font-family: HelveticaNeueBold;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueBold.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueBoldItalic;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueBoldItalic.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueCondensedBlack;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueCondensedBlack.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueCondensedBold;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueCondensedBold.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueItalic;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueItalic.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueLight;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueLight.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueLightItalic;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueLightItalic.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueMedium;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueMedium.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueUltraLight;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueUltraLight.ttf);
+} */
+/*
+@font-face {
+    font-family: HelveticaNeueUltraLightItalic;
+    src: url(http://files.enjin.com/484591/FONTS/HelveticaNeueUltraLightItalic.ttf);
+}
+*/
+</style>
+
+<style>
+/* This tag sets the background color of the entire page 
+* you can set a custom color by putting it in HEX, rgb, rgba, cmyk, or by typing normal english colors
+*/
+html, body {
+	background-color: #333333;
+}
+/* This sets the background color for the table in which your schedule is shown in */
+table {
+	background-color: #aaaaaa;
+}
+/* This sets the background color of the table lines */
+tr {
+	background-color: #191919;
+	font-size: 45px;
+	margin: 0;
+}
+/* This sets the color, family, size, and alignment of the text in the table */
+td {
+	color: #476BB2;
+    font-family: HelveticaNeue, sans-serif; /* sans-serif means that when the font "HelveticaNeue" is not availible, it will use the default web/computer font */
+    font-size: 42px;
+    text-align: center;
+}
+/* I could also preform the same function above by doing this: */
+		/* By adding a "." in front of the CSS tag, I reference a class that I specified in the HTML */
+		/* But if I wanted to style a JavaScript id, then I would need to put a '#' instead of a '.' */
+/*
+.schedule {
+	color: #476BB2;
+    font-family: 'HelveticaNeue', sans-serif;
+    font-size: 42px;
+    text-align: center;
+}
+*/
+</style>
+<center>
+<table id="schedule" border="1"> <!-- the ' id="schedule" ' tag loads the javascript defined (or "ID'd") in the JavaScript -->
+<tr style="margin: 0;"> <!-- By putting a style attribute, I can now insert quick little CSS addons in the actual HTML code -->
+<td class="schedule"><strong>My Day</strong></td> <!-- By adding the ' class="schedule" ' I can specify the SPECIFIC td tag that I want to alter or 'style', and any other tag that uses this class -->
+</tr>
+</table>
+</center>
+<script>
+	// Make your own schedule!
+	// Follow the instructions in the comments, by the relavant blocks of code
+
+	// This is a schedule for: (Put your name here!)
+
+	// Function for adding the items (You dont need to worry about this!)
+	function scheduleItem (block) {
+    this.block = block; 
+	}
+	// Prototype tag lets javascript add to existing HTML code, eg. the rows (You dont need to worry about this!)
+	scheduleItem.prototype.write = function() {
+    var table=document.getElementById("schedule");
+    var row=table.insertRow(-1);
+    var cell1=row.insertCell(0);
+    cell1.innerHTML=this.block;
+	} 
+	//Here is where you can set your block names
+	var letterDay = prompt("Enter the letter day:");
+	var currentLetterDay = letterDay.toUpperCase();
+	var block1 = new scheduleItem("Free");
+	var block2 = new scheduleItem("History");
+	var block3 = new scheduleItem("English");
+	var block4 = new scheduleItem("Strings");
+	var block5 = new scheduleItem("Spanish");
+	var block6 = new scheduleItem("Chemistry");
+	var block7 = new scheduleItem("Health");
+	var block8 = new scheduleItem("Precalc");
+	var cwp = new scheduleItem("CWP");
+	var lunch1 = new scheduleItem("Early Lunch");
+	var lunch2 = new scheduleItem("Lunch 2/Help Desk");
+	var lunch3 = new scheduleItem("Late Lunch");
+	var helpDesk = new scheduleItem("Help Desk");
+	var meetingPeriod = new scheduleItem("Meeting Period");
+	var dropBlock = new scheduleItem("Free");
+	// Error handling; if a invalid input is entered, this message will be displayed on to the website.
+	var error = new scheduleItem('Error: Invalid input, please reload the page and try again.');
+	// Printing the letter day based on outcome of the letter day loop
+	// Please edit the order of the blocks to be matching with your lunch blocks, by inserting lunch1.write();, lunch2.write(); or lunch3.write(); in the appropriate spots
+	if(currentLetterDay == "A"){
+		// A-Day block order here!
+		block1.write();
+		cwp.write();
+		block2.write();
+		block3.write();
+		lunch3.write();
+		block4.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "B"){
+		// B-Day block order here!
+		block5.write();
+		cwp.write();
+		block6.write();
+		lunch1.write();
+		block7.write();
+		block8.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "C"){
+		// C-Day block order here!
+		block2.write();
+		cwp.write();
+		block4.write();
+		lunch2.write();
+		block3.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "D"){
+		// D-Day block order here!
+		block6.write();
+		cwp.write();
+		block8.write();
+		lunch1.write();
+		block5.write();
+		dropBlock.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "E"){
+		// E-Day block order here!
+		block3.write();
+		cwp.write();
+		block1.write();
+		block4.write();
+		lunch3.write();
+		block2.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "F"){
+		// F-Day block order here!
+		block7.write();
+		cwp.write();
+		block5.write();
+		lunch1.write();
+		block8.write();
+		block6.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "G"){
+		// G-Day block order here!
+		block4.write();
+		cwp.write();
+		block3.write();
+		block2.write();
+		lunch3.write();
+		block1.write();
+		meetingPeriod.write();
+	} else if(currentLetterDay == "H"){
+		// H-Day block order here!
+		block8.write();
+		cwp.write();
+		block7.write();
+		block6.write();
+		lunch3.write();
+		block5.write();
+		meetingPeriod.write();
+	} else { //Errors 
+		error.write();
+	}
+</script>
+
+<!-- Javascript and HTML by David Harvey -->
+<!-- CSS and comments by Alex Eiden -->
